@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(253, 250, 237);
+    min-height: 80vh;
+}
+
+.container{
+    margin: 60px auto;
+    max-width: 600px;
+}
+
+#optionsContainer{
+    display: grid;
+    gap: 10px;
+}
+
+#progressText {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.option-btn {
+    text-align: left;
+}
+
+.option-btn.correct {
+    background-color: #03ab5c !important;
+    color: white !important;
+    border-color: #084126 !important;
+}
+
+.option-btn.wrong {
+    background-color: #e20b20 !important;
+    color: white !important;
+    border-color: #62030c !important;
+}
