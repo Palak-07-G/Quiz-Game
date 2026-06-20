@@ -67,12 +67,19 @@ $( function(){
         const buttons = $(".option-btn");
 
         buttons.eq(q.correctIndex).addClass("correct");
-
+        
         if (selectedIndex !== q.correctIndex) {
             buttons.eq(selectedIndex).addClass("wrong");
+            const audio = new Audio('sounds/wrong-answer-sound-effect.mp3');
+            audio.play();
+            changeBackgroundColour('red', 2);
         } else {
             score++;
             $("#scoreText").text(`Score : ${score}`);
+            const audio = new Audio('sounds/kids-saying-yay-sound-effect_3.mp3');
+            audio.play();
+            changeBackgroundColour('green', 2);
+
         }
 
         // after correct and wrong has been detected, we disable rest of the buttons
@@ -86,6 +93,14 @@ $( function(){
         $("#resultScreen").removeClass("d-none");
         $("#finalScore").text(` ${score} / ${questions.length}`);
 
+    }
+
+    function changeBackgroundColour(tempColour, seconds){
+        const originalColour = getComputedStyle(document.body).backgroundColor;
+        document.body.style.backgroundColor = tempColour;
+        setTimeout(() => {
+            document.body.style.backgroundColor = originalColour;
+            }, seconds * 1000);
     }
 
     $("#startBtn").on("click", function () {
